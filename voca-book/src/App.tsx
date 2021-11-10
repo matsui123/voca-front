@@ -1,25 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react';
+import words from './example.json';
 
-function App() {
+function App(){
+  const [en,setEn] = useState<string>('');
+  const [jp,setJp] = useState<string>('');
+  const [memo,setMemo] = useState<string>('');
+
+  const handleEn = (e:any) => setEn(e.target.value);
+  const handleJp = (e:any) => setJp(e.target.value);
+  const handleMemo = (e:any) => setMemo(e.target.value);
+
+  type Words = {
+    en:string,
+    ja:string,
+    memo:string
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <section className='center'>
+      <h1>VOCA BOOK</h1>
+      <div className='input-area'>
+        <div className='flex'>
+          <input type="text" value={en} placeholder="English" onChange={handleEn} />
+          <input type="text" value={jp} placeholder="日本語" onChange={handleJp} />
+          <input type="text" value={memo} placeholder="メモ" onChange={handleMemo} />
+          <button>登録</button>
+        </div>
+        <div className='flex-table'>
+          <table>
+                <tr>
+                  <th>英語</th>
+                  <th>日本語</th>
+                  <th>メモ</th>
+                </tr>
+                {words.map(word =>
+                    <tr>
+                      <td>{word.en}</td>
+                      <td>{word.ja}</td>
+                      <td>{word.memo}</td>
+                    </tr>
+                )}
+          </table>
+        </div>
+      </div>
+    </section>
+    </>
   );
 }
 
