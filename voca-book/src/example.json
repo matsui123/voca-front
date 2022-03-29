@@ -1,0 +1,74 @@
+[
+    {   
+        "id":1,
+        "en": "cat",
+        "ja": "猫",
+        "memo": "戌の方がかわいい"
+    },
+    {
+        "id":2,
+        "en": "conversely",
+        "ja": "逆に",
+        "memo": "副詞"
+    },
+    {
+        "id":3,
+        "en": "nudge",
+        "ja": "軽く押す",
+        "memo": "動詞"
+    },
+    {
+        "id":4,
+        "en": "counterproductive",
+        "ja": "逆効果の",
+        "memo": "形容詞"
+    },
+    {
+        "id":5,
+        "en": "subtle",
+        "ja": "かすかな",
+        "memo": "ｂ発音しない"
+    },
+    {
+        "id":6,
+        "en": "trait",
+        "ja": "特色　特徴",
+        "memo": ""
+    },
+    {
+        "id":7,
+        "en": "intensive",
+        "ja": "激しい",
+        "memo": "insaneと間違えがち"
+    },
+    {
+        "id":8,
+        "en": "assumptions",
+        "ja": "仮定",
+        "memo": ""
+    },
+    {
+        "id":9,
+        "en": "convolute",
+        "ja": "巻き込む",
+        "memo": ""
+    },
+    {
+        "id":10,
+        "en": "chunk",
+        "ja": "大きいまとまり",
+        "memo": "大事"
+    },
+    {
+        "id":11,
+        "en": "flip",
+        "ja": "はじく",
+        "memo": "とばすとかも"
+    },
+    {
+        "id":12,
+        "en": "on the other hands",
+        "ja": "一方で",
+        "memo": "よく使う"
+    }
+]
