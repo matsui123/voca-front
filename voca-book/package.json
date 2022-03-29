@@ -2,6 +2,10 @@
   "name": "voca-book",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.14.0",
+    "npm": "8.3.1"
+  },
   "dependencies": {
     "@emotion/css": "^11.5.0",
     "@emotion/react": "^11.6.0",
@@ -72,9 +76,5 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true
-  },
-  "engines": {
-    "node": "16.14.0",
-    "npm": "8.3.1"
   }
 }
