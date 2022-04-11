@@ -28,6 +28,7 @@ import WordTable from '../styled-components/WordTable';
 import WrapperInput from 'styled-components/WrapperInput';
 import WrapperTable from 'styled-components/WrapperTable';
 import WrapperSearch from 'styled-components/WrapperSearch';
+import WrapperJM from 'styled-components/WrapperJM';
 
 export const IP = 'https://vocabook-back.herokuapp.com/';
 
@@ -42,7 +43,6 @@ export type getData = {
 
 export const VocaBook = () => {
 
-    const [isLoading, setIsLoading] = useState<boolean>(false);
     const [toggle, setToggle] = useState<boolean>(false);
     const [showCard, setShowCard] = useState<string>('');
     const [check, setCheck] = useState<string[]>([]);
@@ -53,12 +53,10 @@ export const VocaBook = () => {
     const [selectedData, setSelectedData] = useState<getData[]>([]);
     const [editId, setEditId] = useState<any>();
 
-    const {data, setData} = useContext(AllData);
+    const {data, setData, isLoading, setIsLoading} = useContext(AllData);
 
 
-    const updateLoading = useCallback((prop:boolean):void => setIsLoading(prop),[]);
     const updateToggle = useCallback((prop:boolean):void => setToggle(prop),[]);
-    const updateData = useCallback((props:any):void => setData(props),[]);
     const updateCard = useCallback((prop:string):void => setShowCard(prop),[]);
     const updateEdit = useCallback((prop:boolean):void => setEdit(prop),[]);
     const updateDelete = useCallback((prop:boolean):void => setDeleteWord(prop),[]);
@@ -109,17 +107,23 @@ export const VocaBook = () => {
         }
         const ip_delete = IP+'delete';
         //TODO:isLoadingの処理必要
-        if(isLoading) return;
-        updateLoading(true);
+        //if(isLoading) return;
+        //updateLoading(true);
         try {
             const data = await axios.post(ip_delete,params);
             console.log(data.data);
         } catch (e: any) {
             throw new Error(e);
         } finally {
-            updateLoading(false);
+            setIsLoading(true);
         }
-        wrongFlg ? setData(await getArrayData('wrong')) : setData(await getArrayData());
+        if(wrongFlg){
+            const [AllArrayData] = await getArrayData('wrong');
+            setData( AllArrayData );
+        }else{
+            const [AllArrayData] = await getArrayData();
+            setData( AllArrayData );
+        }
         setDeleteWord(false);
     }
 
@@ -172,8 +176,10 @@ export const VocaBook = () => {
                                 <TableCell className={`padding ${deleteWord ? '' : 'none'}`} align="left"></TableCell>
                                 <TableCell className="padding" align="left">No.</TableCell>
                                 <TableCell className="padding" align="left">English</TableCell>
-                                <TableCell className="padding" align="left">日本語</TableCell>
-                                <TableCell className="padding" align="left">メモ</TableCell>
+                                <TableCell className="padding" align="left">
+                                    <WrapperJM>日本語</WrapperJM>
+                                    <WrapperJM>メモ</WrapperJM>
+                                </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody >
@@ -193,8 +199,10 @@ export const VocaBook = () => {
                                     </TableCell >
                                     <TableCell className="padding" align="left">{dt.index}</TableCell >
                                     <TableCell className="padding" align="left">{dt.english}</TableCell >
-                                    <TableCell className="padding" align="left">{dt.japanese}</TableCell >
-                                    <TableCell className="padding" align="left">{dt.memo}</TableCell >
+                                    <TableCell className="padding" align="left">
+                                        <WrapperJM>{dt.japanese}</WrapperJM>
+                                        <WrapperJM>{dt.memo}</WrapperJM>
+                                    </TableCell >
                                 </TableRow>
                             )}
                         </TableBody>

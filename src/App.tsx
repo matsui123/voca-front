@@ -5,7 +5,8 @@ export const AllData = createContext<any>(null);
 
 function App(){
   const [data, setData] = useState<any[]>();
-  const value = {data, setData};
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const value = {data, setData, isLoading, setIsLoading};
 
   return(
     <AllData.Provider value={value}>
