@@ -5,6 +5,7 @@ import axios from 'axios';
 import { IP } from '../pages/vocaBook';
 import { AllData } from '../App'
 import { WrapperEditModal } from '../styled-components/WrapperEditModal'
+import { getArrayData } from 'methods/getArrayData';
 
 type Props = {
     updateEditModal:(prop:boolean) => void,
@@ -46,9 +47,8 @@ export const EditModal = (props:Props) => {
             //updateLoading(false);
         }
         //サーバーおちる
-        //setData( await getArrayData());
-        //id順に並んでいない
-        //それによってcssバグ発生
+        const [AllArrayData] = await getArrayData();
+        setData( AllArrayData );
         //setEdit(false);
     }
 

@@ -77,7 +77,7 @@ export const SecondMm = styled(WrapperMm)<{toggle: boolean}>`
 export const Answer = styled.div`
     margin: 140px 20px 60px;
     text-align: center;
-    font-size: 42px;
+    font-size: 30px;
     display: flex;
     justify-content: space-between;
 `;

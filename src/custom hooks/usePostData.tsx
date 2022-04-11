@@ -24,16 +24,13 @@ export const usePostData = ():[
     const handleJp = useCallback((e:any) => setJp(e.target.value), []);
     const handleMemo = useCallback((e:any) => setMemo(e.target.value), []);
 
-    const {setData} = useContext(AllData);
+    const {setData, setIsLoading} = useContext(AllData);
 
     //handleRegisterにuseCallbackいれるとuseStateの値が読まれない
     //依存関係がおかしいから？
     const handleRegister = async () => {
-        console.log('push1')
        //if (isLoading) return;
         if (en === '' || jp === '') return;
-        console.log('push2')
-        console.log(typeof en);
         const params = {
             en: en,
             jp: jp,
@@ -42,7 +39,9 @@ export const usePostData = ():[
         console.log(params);
         await postInfo(params);
         resetInput();
-        setData(await getArrayData());
+        const [getAllData] = await getArrayData();
+        setData(getAllData);
+        setIsLoading(true);
     };
 
     const postInfo = async (params: Words): Promise<void> => {
