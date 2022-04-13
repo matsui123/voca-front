@@ -43,6 +43,7 @@ export const MenuBar:FC<Props> = React.memo((props:Props) => {
 
   const showCard = () => {
     updateEdit(false);
+    updateDelete(false);
     updateCard('card');
   }
   const showDelete = () => {
@@ -51,9 +52,11 @@ export const MenuBar:FC<Props> = React.memo((props:Props) => {
   }
   const showEdit = () => {
     updateEditNCardToFalse();
+    updateDelete(false);
     updateEdit(true);
   }
   const allWords = async() => {
+    updateDelete(false);
     updateEditNCardToFalse();
     //すでに全単語だったら無駄な通信しない
     const[ getAllData, isLoading ] = await getArrayData();
