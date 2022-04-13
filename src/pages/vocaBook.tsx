@@ -129,7 +129,7 @@ export const VocaBook = () => {
 
 
     const colorTd = (id:number):(string | undefined) => {
-        if(id%2 !== 0) return "td-color";
+        if(id%2 === 0) return "td-color";
     }
 
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -168,7 +168,7 @@ export const VocaBook = () => {
                 </WrapperSearch>
                 <WrapperTable>
                     <TableContainer component={Paper}>
-                        <Table sx={{ minWidth: 500 }} aria-label="simple table">
+                        <Table sx={{ minWidth: 395 }} aria-label="simple table">
                         <TableHead>
                             <TableRow>
                                 <TableCell className={`padding ${showCard!=='' ? '' : 'none'}`} align="left"></TableCell>
