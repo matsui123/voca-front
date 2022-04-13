@@ -238,7 +238,16 @@ table {
   margin: 10px 0;
 }
 
-@media screen and (max-width: 762px) {
+
+@media screen and (max-width: 400px) {
+
+  .en-width {
+    width: 140px;
+  }
+
+  .number-width {
+    width: 20px;
+  }
 
   .margin {
     margin: 20px;

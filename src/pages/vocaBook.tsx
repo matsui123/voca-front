@@ -174,8 +174,8 @@ export const VocaBook = () => {
                                 <TableCell className={`padding ${showCard!=='' ? '' : 'none'}`} align="left"></TableCell>
                                 <TableCell className={`padding ${edit ? '' : 'none'}`} align="left"></TableCell>
                                 <TableCell className={`padding ${deleteWord ? '' : 'none'}`} align="left"></TableCell>
-                                <TableCell className="padding" align="left">No.</TableCell>
-                                <TableCell className="padding" align="left">English</TableCell>
+                                <TableCell className="padding number-width" align="left">No.</TableCell>
+                                <TableCell className="padding en-width" align="left">English</TableCell>
                                 <TableCell className="padding" align="left">
                                     <WrapperJM>日本語</WrapperJM>
                                     <WrapperJM>メモ</WrapperJM>
@@ -197,8 +197,8 @@ export const VocaBook = () => {
                                     <TableCell className={`padding ${deleteWord ? '' : 'none'}`} align="left">
                                         <Button className="side-margin" variant="outlined" onClick={() =>  onDelete(dt.id)}>DELETE</Button>
                                     </TableCell >
-                                    <TableCell className="padding" align="left">{dt.index}</TableCell >
-                                    <TableCell className="padding" align="left">{dt.english}</TableCell >
+                                    <TableCell className="padding number-width" align="left">{dt.index}</TableCell >
+                                    <TableCell className="padding en-width" align="left">{dt.english}</TableCell >
                                     <TableCell className="padding" align="left">
                                         <WrapperJM>{dt.japanese}</WrapperJM>
                                         <WrapperJM>{dt.memo}</WrapperJM>
